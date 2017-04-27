@@ -1,0 +1,272 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": " TODO LIST - API ",
+        "version": "1.0.0"
+    },
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json",
+        "application/x-www-urlencoded",
+        "multipart/form-data"
+    ],
+    "produces": [
+        "application/json",
+        "multipart/form-data"
+    ],
+    "tags": [
+        {
+            "name": "list",
+            "description": "list"
+        },
+        {
+            "name": "task",
+            "description": "Task"
+        }
+    ],
+    "paths": {
+        "/list/index": {
+            "get": {
+                "tags": [
+                    "list"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get lists",
+                "operationId": "getLists",
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/list/create": {
+            "post": {
+                "tags": [
+                    "list"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Create list",
+                "operationId": "createList",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "in": "formData",
+                        "name": "title",
+                        "required": true,
+                        "description": "Title"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/list/view": {
+            "get": {
+                "tags": [
+                    "list"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get list",
+                "operationId": "getList",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "List Id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/list/delete": {
+            "delete": {
+                "tags": [
+                    "list"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Delete list",
+                "operationId": "deleteList",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "List Id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/task/index": {
+            "get": {
+                "tags": [
+                    "task"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get tasks",
+                "operationId": "getTaskInList",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "in": "query",
+                        "name": "list_id",
+                        "required": true,
+                        "description": "List Id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/task/create": {
+            "post": {
+                "tags": [
+                    "task"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Create Task",
+                "operationId": "createTask",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "in": "formData",
+                        "name": "text",
+                        "required": true,
+                        "description": "Title"
+                    },
+                    {
+                        "type": "integer",
+                        "in": "formData",
+                        "name": "list_id",
+                        "required": true,
+                        "description": "List Id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/task/view": {
+            "get": {
+                "tags": [
+                    "task"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get task",
+                "operationId": "getLask",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "Task Id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/task/delete": {
+            "delete": {
+                "tags": [
+                    "task"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Delete task",
+                "operationId": "deleteTask",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "Task Id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/task/change-status": {
+            "post": {
+                "tags": [
+                    "task"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Change task status",
+                "operationId": "changeTaskStatus",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "Task Id"
+                    },
+                    {
+                        "type": "integer",
+                        "enum": [0, 1],
+                        "in": "formData",
+                        "name": "status",
+                        "required": true,
+                        "description": "Status"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
