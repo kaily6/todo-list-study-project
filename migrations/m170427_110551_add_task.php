@@ -9,8 +9,8 @@ class m170427_110551_add_task extends Migration
         $this->createTable('task', [
             'id' => $this->primaryKey()->notNull()->unsigned(),
             'text' => $this->text(),
-            'done' => $this->boolean()->defaultValue(false),
-            'list_id' => $this->integer()->unsigned(),
+            'status' => $this->boolean()->defaultValue(false),
+            'list_id' => $this->integer()->unsigned()->notNull(),
         ]);
         $this->createIndex(
             'idx-task-list_id',
