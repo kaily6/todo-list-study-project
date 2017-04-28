@@ -22,14 +22,14 @@ class m170427_113945_populate extends Migration
             [
                 'id' => 1,
                 'text' => 'Read a book',
-                'done' => false,
+                'status' => false,
                 'list_id' => 1,
             ]);
         $this->insert('task',
             [
                 'id' => 2,
                 'text' => 'Go to LT DAY',
-                'done' => false,
+                'status' => false,
                 'list_id' => 2,
             ]
         );
